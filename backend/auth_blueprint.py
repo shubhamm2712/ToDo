@@ -53,5 +53,6 @@ def logout():
     except CustomException as e:
         return e.toResponse()
     except Exception as e:
+        print(e)
         return {"message": "Exception: "+str(e)}, 500
     

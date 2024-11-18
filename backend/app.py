@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 
 import auth_blueprint
 import tasks_blueprint
@@ -8,6 +9,7 @@ from database import db
 app = Flask(__name__)
 app.config["SECRET_KEY"] = config.secret_key
 app.config["SQLALCHEMY_DATABASE_URI"] = config.database_uri
+CORS(app)
 
 db.init_app(app)
 
